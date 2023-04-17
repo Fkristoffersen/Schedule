@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ScheduleEditor */
+table {
+  width: 80%; /* Set the width of the table */
+  margin: 0 auto; /* Center the table horizontally */
+  font-size: 1.2em; /* Increase the font size */
+}
+/* ScheduleEditor */
+th, td {
+  padding: 10px; /* Add some padding to the cells */
+  border: 1px solid #ccc; /* Add a border to the cells */
+}
