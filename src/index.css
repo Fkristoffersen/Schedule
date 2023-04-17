@@ -14,12 +14,62 @@ code {
 
 /* ScheduleEditor */
 table {
-  width: 80%; /* Set the width of the table */
+  width: 90%; /* Set the width of the table */
   margin: 0 auto; /* Center the table horizontally */
   font-size: 1.2em; /* Increase the font size */
 }
-/* ScheduleEditor */
-th, td {
-  padding: 10px; /* Add some padding to the cells */
-  border: 1px solid #ccc; /* Add a border to the cells */
+
+/* Schedule */
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-family: Roboto, sans-serif;
+}
+
+thead {
+  border-bottom: 2px solid #ddd;
+}
+
+th {
+  padding: 16px 8px;
+  text-align: center;
+}
+
+#Week {
+  padding:0%;
+  width: 0;
+  color:#918b8b;
+}
+/* Table information  */
+td {
+  padding: 30px 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  
+}
+/* Removes the border from time in schedule */
+.number-cell {
+  border: none;
+  color:#918b8b;
+}
+
+td:focus {
+  outline: none;
+}
+
+button {
+  margin-right: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #b8b4b4;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1ca91e;
+  color: #fff;
 }

@@ -87,8 +87,10 @@ const ScheduleEditor = () => {
           ))}
         </tbody>
       </table>
-      <button onClick={saveSchedule}>Save Schedule</button>
-      <button onClick={clearSchedule}>Clear Schedule</button>
+      <div>
+        <button onClick={saveSchedule} className="button-primary">Save Schedule</button>
+        <button onClick={clearSchedule} className="button-secondary">Clear Schedule</button>
+      </div>
     </div>
   );
 };
