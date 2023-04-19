@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { ChromePicker } from 'react-color';
 
-const daysOfWeek = ['Mon 2', 'Tue 3', 'Wed 4', 'Thu 5', 'Fri 6'];
+
+const daysOfWeek = ['Mon<span class="blue-circle">2</span>', 'Tue<br>3', 'Wed<br>4', 'Thu<br>5', 'Fri<br>6'];
 const timePeriods = ['7', '8', '9', '10', '11', '12', '13', '14', '15'];
+
 
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState<{ [key: string]: string }>({});
+  const [color, setColor] = useState('#000000');
 
   const updateSchedule = (day: string, time: string, subject: string) => {
     const key = `${day}-${time}`;
@@ -43,18 +47,35 @@ const Schedule = () => {
     const subject = cell.innerText.trim();
     cell.contentEditable = 'false';
     updateSchedule(day, time, subject);
+    if (subject) {
+      cell.classList.add('filled');
+      cell.style.backgroundColor = color;
+    } else {
+      cell.classList.remove('filled');
+      cell.style.backgroundColor = '';
+    }
   };
+  
+  
 
 
   return (
     <div>
+      <div className='banner'>
       <h2>January 2023</h2>
+      <div className="button-container">
+        <button className="small-button">Week</button>
+        <button className="small-button">Month</button>
+        <button className="small-button">Year</button>
+      </div>
+      
+      </div>
       <table>
         <thead>
           <tr>
             <th id='Week'>Uge 1</th>
             {daysOfWeek.map(day => (
-              <th key={day}>{day}</th>
+              <th key={day} dangerouslySetInnerHTML={{ __html: day }} />
             ))}
           </tr>
         </thead>
@@ -67,12 +88,21 @@ const Schedule = () => {
                   key={`${day}-${time}`}
                   data-day={day}
                   data-time={time}
+                  onClick={handleCellClick}
+                  onBlur={handleCellBlur}
                 ></td>
+                
               ))}
             </tr>
           ))}
         </tbody>
+        
       </table>
+      {color && (
+  <div className="color-picker">
+    <ChromePicker color={color} onChange={(c) => setColor(c.hex)} />
+  </div>
+)}
     </div>
   );
 };
